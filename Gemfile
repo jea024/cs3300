@@ -84,3 +84,5 @@ end
 group :development, :test do
   gem 'capybara'
 end
+
+gem 'simplecov', require: false
