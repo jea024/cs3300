@@ -84,5 +84,10 @@ end
 group :development, :test do
   gem 'capybara'
 end
+group :test do
+  gem 'factory_bot_rails'
+  gem 'database_cleaner-active_record'
+end
 
 gem 'simplecov', require: false
+gem 'devise'

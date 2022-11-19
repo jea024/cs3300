@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature do
   context "Create new project" do
+    login_user
     before(:each) do
       visit new_project_path
       within("form") do
@@ -22,6 +23,7 @@ RSpec.feature "Projects", type: :feature do
   end
 
   context "Update project" do
+    login_user
     let(:project) { Project.create(title: "Test title", description: "Test content") }
     before(:each) do
       visit edit_project_path(project)
@@ -45,6 +47,7 @@ RSpec.feature "Projects", type: :feature do
   end
 
   context "Remove existing project" do
+    login_user
     let!(:project) { Project.create(title: "Test title", description: "Test content") }
     scenario "remove project" do
       visit projects_path
