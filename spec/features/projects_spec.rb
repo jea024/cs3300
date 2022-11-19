@@ -5,9 +5,7 @@ RSpec.feature "Projects", type: :feature do
     login_user
     before(:each) do
       visit new_project_path
-      within("form") do
-        fill_in "Title", with: "Test title"
-      end
+      fill_in "Title", with: "Test title"
     end
 
     scenario "should be successful" do
@@ -30,17 +28,13 @@ RSpec.feature "Projects", type: :feature do
     end
 
     scenario "should be successful" do
-      within("form") do
-        fill_in "Description", with: "New description content"
-      end
+      fill_in "Description", with: "New description content"
       click_button "Update Project"
       expect(page).to have_content("Project was successfully updated")
     end
 
     scenario "should fail" do
-      within("form") do
-        fill_in "Description", with: ""
-      end
+      fill_in "Description", with: ""
       click_button "Update Project"
       expect(page).to have_content("Description can't be blank")
     end
