@@ -8,16 +8,19 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <% flash.each do |type, msg| %>
-      <div>
-        <%= msg %>
-      </div>
-    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </head>
 
   <body>
+  <div class="align-right row">
+         <% if user_signed_in? %>     
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, :class => "btn btn-outline-light btn-defualt"%>
+          <% else %>
+            <%= button_to "Sign in", new_user_session_path, method: :get, :class => "btn btn-outline-light btn-default" %>
+            <%= button_to "Sign up", new_user_registration_path, method: :get, :class => "btn btn-outline-light btn-defualt" %>
+          <% end %>
+        </div>
     <%= yield %>
   </body>
 </html>
