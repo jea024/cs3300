@@ -91,3 +91,7 @@ end
 
 gem 'simplecov', require: false
 gem 'devise'
+gem 'bootstrap', '~> 5.2.2'
+gem 'jquery-rails'
+
+
